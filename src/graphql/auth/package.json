@@ -1,0 +1,47 @@
+{
+  "name": "auth",
+  "version": "0.0.1",
+  "description": "Armory microservices",
+  "main": "handler.js",
+  "scripts": {
+    "config": "serverless config credentials --provider aws --key $AWS_KEY --secret $AWS_SECRET --profile armada --overwrite",
+    "deploy": "serverless deploy --stage $STAGE",
+    "remove": "serverless remove",
+    "start": "serverless offline start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@g-six/kastle-router": "^0.1.6",
+    "@g-six/swiss-knife": "^0.1.9",
+    "@hapi/joi": "^16.1.8",
+    "apollo-server-lambda": "^2.10.0",
+    "aws-sdk": "^2.594.0",
+    "bcryptjs": "^2.4.3",
+    "class-validator": "^0.11.0",
+    "js-yaml": "^3.13.1",
+    "jsonwebtoken": "^8.5.1",
+    "lodash": "^4.17.15",
+    "pg-connection-string": "^2.1.0",
+    "redis": "^2.8.0",
+    "source-map-support": "^0.5.16",
+    "typeorm": "^0.2.22",
+    "typeorm-encrypted": "^0.5.1"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.39",
+    "@types/bcryptjs": "^2.4.2",
+    "@types/hapi__joi": "^16.0.4",
+    "@types/jsonwebtoken": "^8.3.7",
+    "@types/lodash": "^4.14.149",
+    "@types/node": "^12.12.21",
+    "@types/redis": "^2.8.14",
+    "serverless": "^1.60.0",
+    "serverless-offline": "^5.12.1",
+    "serverless-plugin-typescript": "^1.1.9",
+    "serverless-pseudo-parameters": "^2.5.0",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.7.3"
+  },
+  "author": "Modified by LouizEchi based on the standard template by g-six but for graphql",
+  "license": "MIT"
+}
