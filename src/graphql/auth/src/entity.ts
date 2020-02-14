@@ -41,7 +41,7 @@ export class User {
     length: 100,
     nullable: true,
   })
-  public company = ''
+  public company: string
 
   @Column()
   public is_active: boolean
