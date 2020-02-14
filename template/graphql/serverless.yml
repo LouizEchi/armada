@@ -1,0 +1,39 @@
+service:
+  name: auth
+
+plugins:
+  - serverless-offline
+  - serverless-plugin-typescript
+  - serverless-pseudo-parameters
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  region: ap-southeast-1
+  stage: dev
+  versionFunctions: false
+
+custom:
+  project: kaishahero
+  service_name: auth
+  stage: ${opt:stage, self:provider.stage}
+
+functions:
+  graphql:
+    handler: handler.handleGraphql
+    environment:
+      SLS_DEBUG: true
+    events:
+      - http:
+          path: graphql
+          method: post
+          cors: true
+          integration: lambda-proxy
+          authorizer:
+            - arn:Pool_ARN_DEV
+            - arn:Pool_ARND_PROD
+      - http:
+          path: graphql
+          method: get
+          cors: true
+          integration: lambda-proxy
